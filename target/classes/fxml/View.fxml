@@ -8,41 +8,82 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane layoutY="-1.0" prefHeight="468.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-2.0" prefHeight="550.0" prefWidth="608.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Acceso a ficheros">
+          <Tab fx:id="af" text="Acceso a ficheros">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="600.0">
                      <children>
-                        <TextField layoutX="85.0" layoutY="139.0" prefHeight="29.0" prefWidth="462.0" promptText="Carpeta o fichero crear, eliminar o mover" />
-                        <TextField layoutX="120.0" layoutY="41.0" prefHeight="25.0" prefWidth="397.0" />
-                        <Button layoutX="38.0" layoutY="100.0" mnemonicParsing="false" text="Crear" />
-                        <Button layoutX="120.0" layoutY="98.0" mnemonicParsing="false" text="Eliminar" />
-                        <Button layoutX="224.0" layoutY="98.0" mnemonicParsing="false" text="Mover" />
-                        <CheckBox layoutX="330.0" layoutY="102.0" mnemonicParsing="false" text=" Es carpeta" />
-                        <CheckBox layoutX="450.0" layoutY="102.0" mnemonicParsing="false" text=" Es fichero" />
+                        <TextField fx:id="af_carpetaFichero" layoutX="36.0" layoutY="78.0" prefHeight="29.0" prefWidth="516.0" promptText="Carpeta o fichero crear, eliminar o mover" />
+                        <TextField fx:id="af_ruta" layoutX="120.0" layoutY="41.0" prefHeight="25.0" prefWidth="397.0" promptText="ruta de ejemplo C:\Users\david\PruebaArchivos\" />
+                        <Button fx:id="af_butCrear" layoutX="38.0" layoutY="119.0" mnemonicParsing="false" onAction="#afOnbutCrear" text="Crear" />
+                        <Button fx:id="af_butEliminar" layoutX="120.0" layoutY="119.0" mnemonicParsing="false" onAction="#afOnbutEliminar" text="Eliminar" />
+                        <Button fx:id="af_butMover" layoutX="224.0" layoutY="119.0" mnemonicParsing="false" onAction="#afOnbutMover" text="Mover" />
+                        <CheckBox fx:id="af_checBesCarpeta" layoutX="319.0" layoutY="123.0" mnemonicParsing="false" onAction="#afOnchecBesCarpeta" text=" Es carpeta" />
+                        <CheckBox fx:id="af_checBesFichero" layoutX="435.0" layoutY="123.0" mnemonicParsing="false" onAction="#afOnchecBesFichero" text=" Es fichero" />
                         <Label layoutX="38.0" layoutY="45.0" text="Ruta Actual" />
-                        <Label layoutX="193.0" layoutY="6.0" prefHeight="17.0" prefWidth="113.0" text="Nombre del Alumno" />
-                        <Button layoutX="28.0" layoutY="186.0" mnemonicParsing="false" text="Ver fichero o directorio" />
-                        <Button layoutX="31.0" layoutY="304.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Ver contenido fichero" />
-                        <Button layoutX="31.0" layoutY="359.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Modificar fichero" />
-                        <TextArea layoutX="199.0" layoutY="304.0" prefHeight="122.0" prefWidth="377.0" promptText="Contenido del fichero" />
-                        <TextArea layoutX="28.0" layoutY="220.0" prefHeight="74.0" prefWidth="546.0" promptText="Listado de ficheros y carpetas de la carpeta actual" />
+                        <Label layoutX="217.0" layoutY="14.0" prefHeight="17.0" prefWidth="153.0" text="David Castellano Marrero" />
+                        <Button fx:id="af_butFicheroDirectorio" layoutX="28.0" layoutY="186.0" mnemonicParsing="false" onAction="#afOnbutFicheroDirectorio" text="Ver fichero o directorio" />
+                        <Button fx:id="af_butContfichero" layoutX="25.0" layoutY="384.0" mnemonicParsing="false" onAction="#afOnbutContfichero" prefHeight="25.0" prefWidth="145.0" text="Ver contenido fichero" />
+                        <Button fx:id="af_butModFichero" layoutX="25.0" layoutY="481.0" mnemonicParsing="false" onAction="#afOnbutModFichero" prefHeight="25.0" prefWidth="145.0" text="Modificar fichero" />
+                        <TextArea fx:id="af_txareaContfichero" layoutX="182.0" layoutY="384.0" prefHeight="122.0" prefWidth="383.0" promptText="Contenido del fichero" />
+                        <TextArea fx:id="af_lvFicheroDirectorio" layoutX="182.0" layoutY="186.0" prefHeight="175.0" prefWidth="383.0" promptText="Ver" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Acceso aleatorio">
+          <Tab fx:id="aa" text="Acceso aleatorio">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="aa_ruta" layoutX="128.0" layoutY="42.0" prefHeight="25.0" prefWidth="397.0" promptText="C:" />
+                        <Button fx:id="aa_crearFichero" layoutX="27.0" layoutY="76.0" mnemonicParsing="false" onAction="#aaOncrearFichero" prefHeight="25.0" prefWidth="86.0" text="Crear fichero" />
+                        <Label layoutX="39.0" layoutY="46.0" text="Ruta Actual" />
+                        <Label layoutX="224.0" layoutY="14.0" prefHeight="17.0" prefWidth="153.0" text="David Castellano Marrero" />
+                        <Button fx:id="aa_butContFichero" layoutX="442.0" layoutY="199.0" mnemonicParsing="false" onAction="#aaOnbutContFichero" prefHeight="25.0" prefWidth="145.0" text="Ver contenido fichero" />
+                        <TextArea fx:id="aa_txareaContFichero" layoutX="66.0" layoutY="235.0" prefHeight="172.0" prefWidth="505.0" promptText="Contenido del fichero" />
+                        <Button fx:id="aa_butInserDato" layoutX="451.0" layoutY="127.0" mnemonicParsing="false" onAction="#aaOnbutInserDato" prefHeight="65.0" prefWidth="132.0" text="Insertar datos">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <TextField fx:id="aa_nombreFichero" layoutX="130.0" layoutY="76.0" prefHeight="25.0" prefWidth="397.0" promptText="Nombre del fichero" />
+                        <Button fx:id="aa_butEquipo" layoutX="14.0" layoutY="427.0" mnemonicParsing="false" onAction="#aaOnbutEquipo" prefHeight="25.0" prefWidth="74.0" text="Visualiza" />
+                        <TextField fx:id="aa_txfEquipo" layoutX="110.0" layoutY="427.0" prefHeight="25.0" prefWidth="461.0" promptText="IdEquipo" />
+                        <Button fx:id="aa_butCopas" layoutX="14.0" layoutY="471.0" mnemonicParsing="false" onAction="#aaOnbutCopas" text="Mod copas" />
+                        <TextField fx:id="aa_txfCopas" layoutX="109.0" layoutY="471.0" prefHeight="25.0" prefWidth="462.0" promptText="IdEquipo, copas ganadas" />
+                        <TextField fx:id="aa_id" layoutX="20.0" layoutY="133.0" prefHeight="25.0" prefWidth="101.0" promptText="Id" />
+                        <TextField fx:id="aa_nombre" layoutX="149.0" layoutY="133.0" prefHeight="25.0" prefWidth="178.0" promptText="nombre" />
+                        <TextField fx:id="aa_liga" layoutX="20.0" layoutY="164.0" prefHeight="25.0" prefWidth="101.0" promptText="Liga" />
+                        <TextField fx:id="aa_localidad" layoutX="149.0" layoutY="170.0" prefHeight="25.0" prefWidth="293.0" promptText="Localidad" />
+                        <TextField fx:id="aa_nCopas" layoutX="20.0" layoutY="199.0" prefHeight="25.0" prefWidth="101.0" promptText="Nº Copas" />
+                        <CheckBox fx:id="aa_checBInterna" layoutX="149.0" layoutY="198.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Internacional" />
+                     </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Acceso xml ">
+            <Tab fx:id="ax" text="Acceso xml ">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="ax_butWritOtroFich" layoutX="428.0" layoutY="86.0" mnemonicParsing="false" onAction="#axOnbutWritOtroFich" text="Escribirlo en otro fichero" />
+                        <Button fx:id="ax_butEliminar" layoutX="26.0" layoutY="338.0" mnemonicParsing="false" onAction="#axOnbutEliminar" prefHeight="25.0" prefWidth="106.0" text="Eliminar equipo" />
+                        <TextArea fx:id="ax_txareaVerdatos" layoutX="22.0" layoutY="118.0" prefHeight="214.0" prefWidth="546.0" promptText="Visualizar xml" />
+                        <TextField fx:id="ax_ruta" layoutX="126.0" layoutY="36.0" prefHeight="25.0" prefWidth="441.0" promptText="C:\Users\david\PruebaArchivos\eweg.xml" />
+                        <Label layoutX="37.0" layoutY="40.0" text="Ruta Actual" />
+                        <Label layoutX="233.0" layoutY="14.0" prefHeight="17.0" prefWidth="142.0" text="David Castellano Marrero" />
+                        <Button fx:id="ax_butVerdatos" layoutX="22.0" layoutY="86.0" mnemonicParsing="false" onAction="#axOnbutVerdatos" text="Visualizar datos xml" />
+                        <TextField fx:id="ax_txfEquipo" layoutX="175.0" layoutY="338.0" prefHeight="25.0" prefWidth="129.0" promptText="nomEquipo" />
+                        <TextField fx:id="ax_txfWritOtroFich" layoutX="233.0" layoutY="86.0" prefHeight="25.0" prefWidth="177.0" promptText="escribirlo en otro fichero." />
+                        <Button fx:id="ax_butContraEquipo" layoutX="132.0" layoutY="465.0" mnemonicParsing="false" onAction="#axOnbutAddEquipo" prefHeight="34.0" prefWidth="203.0" text="Añadir contrato equipo" />
+                        <TextField fx:id="ax_txfModCop" layoutX="322.0" layoutY="338.0" prefHeight="25.0" prefWidth="148.0" promptText="modificar copas ganadas" />
+                        <Button fx:id="ax_butModCop" layoutX="483.0" layoutY="338.0" mnemonicParsing="false" onAction="#axOnbutModCop" prefHeight="25.0" prefWidth="102.0" text="ModCopasWin" />
+                        <TextField fx:id="ax_txfFechaFin" layoutX="175.0" layoutY="434.0" prefHeight="25.0" prefWidth="129.0" promptText="FechaFin" />
+                        <TextField fx:id="ax_txfFutbolista" layoutX="175.0" layoutY="370.0" prefHeight="25.0" prefWidth="129.0" promptText="NomFutbolista" />
+                        <TextField fx:id="ax_txfFechaIni" layoutX="175.0" layoutY="402.0" prefHeight="25.0" prefWidth="129.0" promptText="FechaIni" />
+                     </children></AnchorPane>
                </content>
             </Tab>
         </tabs>
